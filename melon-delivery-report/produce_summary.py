@@ -1,43 +1,45 @@
-print("Day 1")
-the_file = open("um-deliveries-20140519.txt")
-for line in the_file:
-    line = line.rstrip()
-    words = line.split('|')
+def format_data(file_name):
+    """Takes in a file name containing the raw delivery data,
+    then prints out the data into the proper log report format."""
 
-    melon = words[0]
-    count = words[0]
-    amount = words[0]
+    # open the file containing the raw delivery data
+    the_file = open(file_name)
 
-    print("Delivered {} {}s for total of ${}".format(
-        count, melon, amount))
-the_file.close()
+    for line in the_file:
+        # convert each line in the file into a list of distinct data
+        line = line.rstrip()
+        words = line.split('|')
 
+        # parse the list of data into their own data elements
+        melon = words[0]
+        num_melons = words[1]
+        total_price = words[2]
 
-print("Day 2")
-the_file = open("um-deliveries-20140520.txt")
-for line in the_file:
-    line = line.rstrip()
-    words = line.split('|')
+        # print the line into a readable format given the parsed data
+        print("Delivered {} {}s for total of ${}".format(
+            num_melons, melon, total_price))
 
-    melon = words[0]
-    count = words[0]
-    amount = words[0]
-
-    print("Delivered {} {}s for total of ${}".format(
-        count, melon, amount))
-the_file.close()
+    # close the file once all the lines have been handled
+    the_file.close()
 
 
-print("Day 3")
-the_file = open("um-deliveries-20140521.txt")
-for line in the_file:
-    line = line.rstrip()
-    words = line.split('|')
+def start_report():
+    """Processes the delivery data for the amount of days delineated."""
 
-    melon = words[0]
-    count = words[0]
-    amount = words[0]
+    # format the data for Day 1
+    print("Day 1")
+    day_1_file = format_data("um-deliveries-20140519.txt")
+    print()
 
-    print("Delivered {} {}s for total of ${}".format(
-        count, melon, amount))
-the_file.close()
+    # format the data for Day 2
+    print("Day 2")
+    day_2_file = format_data("um-deliveries-20140520.txt")
+    print()
+
+    # format the data for Day 3
+    print("Day 3")
+    day_3_file = format_data("um-deliveries-20140521.txt")
+    print()
+
+
+start_report()
