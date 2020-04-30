@@ -1,7 +1,8 @@
-def format_data(file_name):
+def format_data(day, file_name):
     """Takes in a file name containing the raw delivery data,
     then prints out the data into the proper log report format."""
 
+    print("Day", str(day))
     # open the file containing the raw delivery data
     the_file = open(file_name)
 
@@ -27,18 +28,15 @@ def start_report():
     """Processes the delivery data for the amount of days delineated."""
 
     # format the data for Day 1
-    print("Day 1")
-    day_1_file = format_data("um-deliveries-20140519.txt")
+    day_1_file = format_data(1, "um-deliveries-20140519.txt")
     print()
 
     # format the data for Day 2
-    print("Day 2")
-    day_2_file = format_data("um-deliveries-20140520.txt")
+    day_2_file = format_data(2, "um-deliveries-20140520.txt")
     print()
 
     # format the data for Day 3
-    print("Day 3")
-    day_3_file = format_data("um-deliveries-20140521.txt")
+    day_3_file = format_data(3, "um-deliveries-20140521.txt")
     print()
 
 
