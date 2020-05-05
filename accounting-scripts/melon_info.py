@@ -1,18 +1,22 @@
 """Print out all the melons in our inventory."""
 
 
-from melons import melon_names, melon_seedlessness, melon_prices
+from melons import melon_catalog
 
 
-def print_melon(name, seedless, price):
+def print_melon(melon_name, melon_traits):
     """Print each melon with corresponding attribute information."""
 
-    have_or_have_not = 'have'
-    if seedless:
-        have_or_have_not = 'do not have'
+    # Print the name
+    print(melon_name)
+    # Go through each trait in the melon's list of traits and print them
+    for trait in melon_traits:
+        print(f"    {trait}: {melon_traits[trait]}")
 
-    print(f'{name}s {have_or_have_not} seeds and are ${price:.2f}')
+    # Print an empty space to divide with the next melon
+    print()
 
 
-for i in melon_names:
-    print_melon(melon_names[i], melon_seedlessness[i], melon_prices[i])
+# Go through each melon in the melon catalog and print it
+for melon in melon_catalog:
+    print_melon(melon, melon_catalog[melon])
