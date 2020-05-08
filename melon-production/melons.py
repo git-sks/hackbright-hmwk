@@ -33,4 +33,19 @@ class Melon(object):
 
 # FIXME: Add Squash class definition here.
 class Squash(Melon):
-    pass
+    """Winter squash."""
+    
+    def __init__(self, melon_type):
+        """Initialize winter squash."""
+
+        super().__init__(melon_type)
+
+
+    def prep(self):
+        """Prepare the squash."""
+
+        # Prep the squash first by painting it
+        robots.painterbot.paint(self)
+
+        # Then carry out the rest of the prep process from its parent class
+        super().prep()
